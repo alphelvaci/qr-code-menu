@@ -1,13 +1,14 @@
 <template>
 <div class="Product">
 	<div class="Product-figure">
-		<img v-bind:src="url" class="Product-image">
+		<img v-bind:src="'http://cdn.agbdining.com/'+product.imageUrl" class="Product-image">
+		<button v-on:click="addToCart" class="Product-button">Sepete ekle</button>
 	</div>
 	<div class="Product-body">
-		<h3 class="Product-title">{{ caption }}</h3>
-		<p class="Product-description">{{ description }}</p>
+		<h3 class="Product-title">{{ product.name }}</h3>
+		<p class="Product-description">{{ product.description }}</p>
 		<div class="Product-Price">
-			{{ price }}
+			{{ product.price }}
 		</div>
 	</div>
 </div>
@@ -17,11 +18,13 @@
 export default {
 	name: 'Product',
 	props:  {
-		caption: String,
-		url: String,
-		description: String,
-		price: Number
-	}
+		product: Object
+	},
+	methods: {
+		addToCart: function () {
+			alert()
+		}
+	},
 }
 </script>
 
@@ -62,6 +65,7 @@ export default {
 }
 
 .Product-title {
+	margin-top: 0px;
 	font-weight: 600;
 	font-size: 1.4em;
 	margin-bottom: calc(.75em / 1.4);
@@ -71,6 +75,22 @@ export default {
 	max-width: 120px;
 	border: 1px solid hsl(0, 0%, 90%);
 	padding: .25em;
+}
+
+.Product-button {
+	margin-top:8px;
+	margin-bottom : 0px;
+	height: 30px;
+	width :90px;
+	background-color: rgb(231, 231, 231);
+	border: 1px solid #777;
+	border-radius: 5px;
+	padding: .25em;
+}
+
+.Product-button:hover {
+	background-color: #444;
+	color:#eee;
 }
 
 </style>
