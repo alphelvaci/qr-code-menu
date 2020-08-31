@@ -5,7 +5,7 @@
     <img src="http://cdn.agbdining.com/resources/midpoint.png" class="headerLogoImage">    
   </center>
   <div class="scrollmenu">
-      <a v-for="category in categories" v-bind:key="category.id" v-bind:href="category">{{ category }}</a>
+      <a v-for="category in categories" v-bind:key="category.id" v-bind:href="'#'+category">{{ category }}</a>
   </div>
 	<li class="list" v-for="product in products" v-bind:key="product.idx">
 		<product v-bind:product="product" @AddToCart="addToCart"/>
