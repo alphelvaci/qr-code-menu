@@ -2,7 +2,7 @@
 <div class="Product">
 	<div class="Product-figure">
 		<img v-bind:src="'http://cdn.agbdining.com/'+product.imageUrl" class="Product-image">
-		<button v-on:click="addToCart" class="Product-button">Sepete ekle</button>
+		<button v-on:click="addToCart()" class="Product-button">Sepete ekle</button>
 	</div>
 	<div class="Product-body">
 		<h3 class="Product-title">{{ product.name }}</h3>
@@ -22,7 +22,7 @@ export default {
 	},
 	methods: {
 		addToCart: function () {
-			alert()
+			this.$emit('AddToCart', this.product)
 		}
 	},
 }

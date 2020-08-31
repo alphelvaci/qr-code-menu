@@ -8,7 +8,7 @@
       <a v-for="category in categories" v-bind:key="category.id" v-bind:href="category">{{ category }}</a>
   </div>
 	<li class="list" v-for="product in products" v-bind:key="product.idx">
-		<product v-bind:product="product"/>
+		<product v-bind:product="product" @AddToCart="addToCart"/>
 	</li>
   <h3 id="Başlangıçlar">Başlangıçlar</h3>
   <li class="list" v-for="product in products" v-bind:key="product.idx">
@@ -31,10 +31,17 @@ export default {
   components: {
     Product
   },
+  methods: {
+    addToCart: function (product) {
+      this.inCart.push(product)
+    }
+  },
   data() {
     return {
       products: null,
-      categories: ['Başlangıçlar', 'Ara Sıcaklar', 'Ana Yemekler', 'Tatlılar', 'İçecekler']
+      categories: ['Başlangıçlar', 'Ara Sıcaklar', 'Ana Yemekler', 'Tatlılar', 'İçecekler'],
+      inCart: [],
+      cartOpen: false
     }
   },
   mounted() {
