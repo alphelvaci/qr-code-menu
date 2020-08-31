@@ -8,7 +8,7 @@
 		<h3 class="Product-title">{{ product.name }}</h3>
 		<p class="Product-description">{{ product.description }}</p>
 		<div class="Product-Price">
-			{{ product.price }}
+			{{ product.price }} TL
 		</div>
 	</div>
 </div>
@@ -56,6 +56,10 @@ export default {
 	margin-right: 1em;
 	margin-bottom: 0;
 	padding-right: 1em;
+}
+
+.Product-body {
+	width: 70%;
 }
 
 .Product-body :last-child {
