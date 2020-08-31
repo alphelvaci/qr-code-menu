@@ -7,18 +7,13 @@
   <div class="scrollmenu">
       <a v-for="category in categories" v-bind:key="category.id" v-bind:href="'#'+category">{{ category }}</a>
   </div>
-	<li class="list" v-for="product in products" v-bind:key="product.idx">
-		<product v-bind:product="product" @AddToCart="addToCart"/>
-	</li>
-  <h3 id="Başlangıçlar">Başlangıçlar</h3>
-  <li class="list" v-for="product in products" v-bind:key="product.idx">
-		<product v-bind:product="product"/>
-	</li>
-  <li class="list" v-for="product in products" v-bind:key="product.idx">
-		<product v-bind:product="product"/>
-	</li>
+  <div v-for="category in categories" v-bind:key="category.id">
+    <h3 v-bind:id="category">{{ category }}</h3>
+    <li class="list" v-for="product in products" v-bind:key="product.idx">
+      <product v-if="category == product.category" v-bind:product="product"/>
+    </li>
+  </div>
 </div>
-
 </body>
 </template>
 
@@ -39,7 +34,7 @@ export default {
   data() {
     return {
       products: null,
-      categories: ['Başlangıçlar', 'Ara Sıcaklar', 'Ana Yemekler', 'Tatlılar', 'İçecekler'],
+      categories: ['Kahvaltı', 'Burger', 'Makarna', 'Tatlılar', 'İçecekler'],
       inCart: [],
       cartOpen: false
     }
@@ -60,6 +55,10 @@ export default {
   color: #2c3e50;
   margin: 0px;
   padding:0px;
+}
+
+html {
+  scroll-behavior:smooth
 }
 
 body {
