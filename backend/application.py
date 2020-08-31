@@ -19,6 +19,7 @@ class Products(db.Model):
     name = db.Column(db.String(50))
     description = db.Column(db.String(200))
     price = db.Column(db.Float)
+    category = db.Column(db.String(50))
     imageUrl = db.Column(db.String(150))
 
     def __repr__(self):
@@ -30,7 +31,7 @@ class ProductSchema(ma.Schema):
     class Meta:
         ordered = True
         fields = (
-            'idx', 'name', 'description', 'price',
+            'idx', 'name', 'description', 'price', 'category',
             'imageUrl')
 
 product_schema = ProductSchema()
