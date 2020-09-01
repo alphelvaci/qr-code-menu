@@ -1,8 +1,7 @@
 <template>
-<div class="Product">
+<div class="ProductInOrderForm">
   <div class="Product-figure">
     <img v-bind:src="'http://cdn.agbdining.com/'+product.imageUrl" class="Product-image">
-    <button v-on:click="addToCart()" class="Product-button">Sepete ekle</button>
   </div>
   <div class="Product-body">
     <h3 class="Product-title">{{ product.name }}</h3>
@@ -16,21 +15,16 @@
 
 <script>
 export default {
-  name: 'Product',
+  name: 'ProductInOrderForm',
   props: {
     product: Object,
-  },
-  methods: {
-    addToCart() {
-      this.$emit('AddToCart', this.product);
-    },
   },
 };
 </script>
 
 <style>
 
-.Product {
+.ProductInOrderForm {
   background: #fff;
   border: 1px solid hsla(0, 0%, 0%, 0.1);
   border-radius: 4px;
