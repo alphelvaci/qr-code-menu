@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow, fields
 from flask_restful import Api, Resource
+from flask_cors import CORS
 from os import getenv
 
 application = Flask(__name__)
@@ -10,6 +11,7 @@ application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(application)
 ma = Marshmallow(application)
 api = Api(application)
+cors = CORS(application, origins="http://dev.agbdining.com")
 
 ### Database table models ###
 
