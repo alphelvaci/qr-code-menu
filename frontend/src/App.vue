@@ -178,7 +178,6 @@ div.scrollmenu a:hover {
 
 .Cart-image {
   height: 30px;
-  margin-left: 3px;
   margin-top: 2px;
 }
 
